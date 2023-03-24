@@ -25,9 +25,18 @@ const categories = ['fruit', 'vegetable', 'dairy'];
 
 app.get('/products', async (req, res) => {
 
-    const products = await Product.find({});
+    const { category } = req.query;
 
-    res.render('products/index', { products });
+    if (category) {
+
+        const products = await Product.find({ category });
+        res.render('products/index', { products, category });
+
+    } else {
+
+        const products = await Product.find({});
+        res.render('products/index', { products, category: 'All' });
+    }
 });
 
 app.get('/products/new', (req, res) => {
