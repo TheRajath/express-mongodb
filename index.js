@@ -83,7 +83,9 @@ app.delete('/products/:id', async (req, res) => {
     res.redirect('/products');
 });
 
-app.listen(3000, () => {
+const server = app.listen(3000, () => {
 
     console.log("APP IS LISTENING ON PORT 3000!");
 });
+
+module.exports = server;
