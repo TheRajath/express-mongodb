@@ -4,7 +4,7 @@
   "description": "Simple express js projects with mongodb integration",
   "main": "index.js",
   "scripts": {
-    "test": "jest --forceExit",
+    "test": "jest --testTimeout=5000 --forceExit",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
