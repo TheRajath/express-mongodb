@@ -53,6 +53,13 @@ app.post('/farms', async (req, res) => {
     res.redirect('/farms');
 });
 
+app.get('/farms/:id', async (req, res) => {
+
+    const farm = await Farm.findById(req.params.id);
+
+    res.render('farms/show', { farm });
+});
+
 // PRODUCT ROUTES
 app.get('/products', wrapAsync(async (req, res, next) => {
 
