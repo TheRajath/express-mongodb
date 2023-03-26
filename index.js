@@ -60,6 +60,13 @@ app.get('/farms/:id', async (req, res) => {
     res.render('farms/show', { farm });
 });
 
+app.delete('/farms/:id', async (req, res) => {
+
+    const farm = await Farm.findByIdAndDelete(req.params.id);
+
+    res.redirect('/farms');
+});
+
 app.get('/farms/:id/products/new', async (req, res) => {
 
     const { id } = req.params;
